@@ -1,5 +1,7 @@
 import { HiOutlineLocationMarker } from 'react-icons/hi'
 import { HiOutlineCurrencyDollar } from 'react-icons/hi2'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const FeaturedJob = ({ job }) => {
     const { id, logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = job;
@@ -16,21 +18,27 @@ const FeaturedJob = ({ job }) => {
                     </div>
                     <div className="flex gap-6 text-[#757575] text-xl font-semibold">
                         <span className="flex justify-center items-center gap-2">
-                            <HiOutlineLocationMarker className='text-[#757575] text-xl'/>
+                            <HiOutlineLocationMarker className='text-[#757575] text-xl' />
                             <p>{location}</p>
                         </span>
                         <span className="flex justify-center items-center gap-2">
-                            <HiOutlineCurrencyDollar className='text-[#757575] text-xl'/>
+                            <HiOutlineCurrencyDollar className='text-[#757575] text-xl' />
                             <p>{salary}</p>
                         </span>
                     </div>
                     <div className="flex justify-start mt-6">
-                        <button className="btn btn-primary font-bold text-xl">View Details</button>
+                        <Link to={`/job/${id}`}>
+                            <button className="btn btn-primary font-bold text-xl capitalize">View Details</button>
+                        </Link>
                     </div>
                 </div>
             </div>
         </div>
     );
 };
+
+FeaturedJob.propTypes = {
+    job : PropTypes.object,
+}
 
 export default FeaturedJob;

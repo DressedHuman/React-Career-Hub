@@ -24,7 +24,7 @@ const FeaturedJobs = () => {
             </div>
             {
                 jobsLength === 4 && <div className="mt-7">
-                    <button onClick={() => setJobsLength(jobs.length)} className="btn btn-primary text-2xl font-bold">Show All Jobs</button>
+                    <button onClick={() => setJobsLength(jobs.length)} className="btn btn-primary text-2xl font-bold capitalize">Show All Jobs</button>
                 </div>
             }
         </div>
