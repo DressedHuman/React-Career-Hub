@@ -19,7 +19,7 @@ const FeaturedJobs = () => {
             </div>
             <div className="grid grid-cols-2 gap-6">
                 {
-                    jobs.slice(0, jobsLength).map(job => <FeaturedJob key={job.id} job={job} />)
+                    jobs.slice(0, jobsLength).map(job => <FeaturedJob key={job.id} job={job} flex_row_or_flex_col={"flex-col"} />)
                 }
             </div>
             {

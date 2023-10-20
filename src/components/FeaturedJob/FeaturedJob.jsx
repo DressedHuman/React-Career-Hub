@@ -3,13 +3,13 @@ import { HiOutlineCurrencyDollar } from 'react-icons/hi2'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-const FeaturedJob = ({ job }) => {
+const FeaturedJob = ({ job, FeaturedOrApplied }) => {
     const { id, logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = job;
     return (
         <div>
-            <div className="p-10 border border-[#E8E8E8] rounded-lg flex flex-col">
-                <div className='mb-8 flex-grow'><img src={logo} alt="Shoes" /></div>
-                <div className="flex flex-col items-start">
+            <div className={`p-10 border border-[#E8E8E8] rounded-lg flex ${FeaturedOrApplied === "applied" ? "justify-between items-center" : "flex-col"}`}>
+                <div className={'flex flex-col items-start'}>
+                    <div className='mb-8 flex-grow'><img src={logo} alt="Shoes" /></div>
                     <h2 className="text-2xl font-extrabold text-[#474747] mb-2">{job_title}</h2>
                     <p className='text-[#757575] text-xl font-semibold mb-4'>{company_name}</p>
                     <div className="flex justify-start gap-4 mb-4">
@@ -26,11 +26,11 @@ const FeaturedJob = ({ job }) => {
                             <p>{salary}</p>
                         </span>
                     </div>
-                    <div className="flex justify-start mt-6">
-                        <Link to={`/job/${id}`}>
-                            <button className="btn btn-primary font-bold text-xl capitalize">View Details</button>
-                        </Link>
-                    </div>
+                </div>
+                <div className="flex justify-start mt-6">
+                    <Link to={`/job/${id}`}>
+                        <button className="btn btn-primary font-bold text-xl capitalize">View Details</button>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -38,7 +38,8 @@ const FeaturedJob = ({ job }) => {
 };
 
 FeaturedJob.propTypes = {
-    job : PropTypes.object,
+    job: PropTypes.object,
+    FeaturedOrApplied: PropTypes.string,
 }
 
 export default FeaturedJob;
